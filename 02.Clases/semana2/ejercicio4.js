@@ -22,7 +22,15 @@ function obtenerMayor(numero) {
 return mayor;
 }
 
-
+function obtenerMenor(numero) {
+    let menor = numero[0];
+    for (let i = 1; i < numero.length; i++) {
+        if (numero[i] < menor) {
+            menor = numero[i];
+        }
+    }
+return menor;
+}
 async function main() {
     const edades = [18, 20, 25, 30, 35];
     const lista = [5,20,30,40,50];
@@ -30,6 +38,8 @@ async function main() {
     const nombres = ["Juan", "Ana", "Pedro", "Maria", "Luis"];
     
     console.log(`El promedio de edades es = ${obtenerPromedio(edades)}`);
+     console.log(`El numero mayor de: ${lista} es = ${obtenerMayor(lista)}`);
+     console.log(`El numero menor de: ${lista} es = ${obtenerMenor(lista)}`);
 
 
 
