@@ -1,63 +1,76 @@
-const { ask } = require('../helpers/input.js');
+const { ask } = require('../helpers/input');
 
-function obtenerPromedio(numero) {
-    let total=0;
-    for (let i = 0; i < numero.length; i++) {
-        total=total + numero[i];
+function obtenerPromedio(numeros) {
+  let total = 0;
+  for (let i = 0; i < numeros.length; i++) {
+    total = total + numeros[i];
+  }
+  const promedio = total / numeros.length;
 
-    }
-
-    const promedio = total / numero.length;
-    
-    return promedio;
+  return promedio;
 }
 
-function obtenerMayor(numero) {
-    let mayor = numero[0];
-    for (let i = 1; i < numero.length; i++) {
-        if (numero[i] > mayor) {
-            mayor = numero[i];
-        }
+function obtenerMayor(numeros) {
+  let mayor = numeros[0];
+  for (let i = 0; i < numeros.length; i++) {
+    if (numeros[i] > mayor) {
+      mayor = numeros[i];
     }
-return mayor;
+  }
+  return mayor;
 }
 
-function obtenerMenor(numero) {
-    let menor = numero[0];
-    for (let i = 1; i < numero.length; i++) {
-        if (numero[i] < menor) {
-            menor = numero[i];
-        }
+function obtenerMenor(numeros) {
+  let menor = numeros[0];
+  for (let i = 0; i < numeros.length; i++) {
+    if (numeros[i] < menor) {
+      menor = numeros[i];
     }
-return menor;
+  }
+  return menor;
 }
 
 function resumenEstadistico(numeros) {
-    const promedio = obtenerPromedio(numeros);
-    const mayor = obtenerMayor(numeros);
-    const menor = obtenerMenor(numeros);
+  const promedio = obtenerPromedio(numeros);
+  const mayor = obtenerMayor(numeros);
+  const menor = obtenerMenor(numeros);
+  return { promedio, mayor, menor };
+}
 
-    return {
-        promedio: promedio,
-        mayor: mayor,
-        menor: menor
-    };
-}    
+function nombresConVocal(nombres) {
+  const vocales = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú'];
+  const resultado = [];
+
+  for (let i = 0; i < nombres.length; i++) {
+    let primerLetra = nombres[i][0].toLowerCase();
+    // for (let j = 0; j < vocales.length; j++) {
+    //   if (vocales[j] === primerLetra) {
+    //     resultado.push(nombres[i]);
+    //   }
+    // }
+    if (vocales.includes(primerLetra)) {
+      resultado.push(nombres[i]);
+    }
+  }
+  return resultado;
+}
+
 async function main() {
-    const edades = [18, 20, 25, 30, 35];
-    const lista = [5,20,30,40,50];
-    const datos = [70,80,90,100,110 ];
-    const nombres = ["Juan", "Ana", "Pedro", "Maria", "Luis"];
-    
-    console.log(`El promedio de edades es = ${obtenerPromedio(edades)}`);
-     console.log(`El numero mayor de: ${lista} es = ${obtenerMayor(lista)}`);
-     console.log(`El numero menor de: ${lista} es = ${obtenerMenor(lista)}`);
-     const estadisticas = resumenEstadistico(datos);
-     console.log(`Promedio: ${estadisticas.promedio}`);
-     console.log(`Mayor:${estadisticas.mayor}`);
-        console.log(`Menor: ${estadisticas.menor}`);
+  const edades = [20, 18, 25, 30, 22];
+  const lista = [5, 20, 8, 99, 3];
+  const datos = [70, 80, 90, 100, 85];
+  const nombres = ['Ana', 'Esteban', 'Luis', 'Óscar', 'María'];
 
-
+  console.log(`Promedio de edades = ${obtenerPromedio(edades)}`);
+  console.log(`El número mayor de: ${lista} = ${obtenerMayor(lista)}`);
+  console.log(`El número menor de: ${lista} = ${obtenerMenor(lista)}`);
+  const estadisticas = resumenEstadistico(datos);
+  console.log(estadisticas);
+  console.log(`El resumen estadístico de: ${datos} es:`);
+  console.log(`Promedio: ${estadisticas.promedio}`);
+  console.log(`Mayor: ${estadisticas.mayor}`);
+  console.log(`Menor: ${estadisticas.menor}`);
+  console.log(`Nombres con vocal: ${nombresConVocal(nombres)}`);
 }
 
 main();
