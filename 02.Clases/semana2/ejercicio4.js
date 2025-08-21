@@ -12,7 +12,15 @@ function obtenerPromedio(numero) {
     return promedio;
 }
 
-
+function obtenerMayor(numero) {
+    let mayor = numero[0];
+    for (let i = 1; i < numero.length; i++) {
+        if (numero[i] > mayor) {
+            mayor = numero[i];
+        }
+    }
+return mayor;
+}
 
 
 async function main() {
