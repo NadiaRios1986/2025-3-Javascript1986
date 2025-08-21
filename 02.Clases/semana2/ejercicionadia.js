@@ -52,7 +52,10 @@ async function main() {
     console.log(`El promedio de edades es = ${obtenerPromedio(edades)}`);
      console.log(`El numero mayor de: ${lista} es = ${obtenerMayor(lista)}`);
      console.log(`El numero menor de: ${lista} es = ${obtenerMenor(lista)}`);
-
+     const estadisticas = resumenEstadistico(datos);
+     console.log(`Promedio: ${estadisticas.promedio}`);
+     console.log(`Mayor:${estadisticas.mayor}`);
+        console.log(`Menor: ${estadisticas.menor}`);
 
 
 }
