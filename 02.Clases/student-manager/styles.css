@@ -2,3 +2,24 @@ body{
   background: #f6f9fc;
   font-family: "segoe ui", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+h1,
+h2 {
+    text-align: center ;
+    color:#f6f9fc
+}
+
+.inpout-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}   
+
+.inpout-group input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
