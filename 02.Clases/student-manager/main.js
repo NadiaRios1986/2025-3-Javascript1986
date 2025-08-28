@@ -27,7 +27,7 @@ function addStudent() {
   const student = {
     name,
     grade,
-    status: grade >= 70 ? "Passed" : "Failed",
+    status: grade >= 30 ? "Passed" : "Failed",
   }
 
   students.push(student);
